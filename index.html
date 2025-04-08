@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Wellness Products</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4caf50;
+            --secondary-color: #2e7d32;
+            --light-bg: #f3f5f2;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+        }
+        
+        .navbar {
+            background-color: #eee8e0;
+            padding: 15px 0;
+        }
+        
+        .navbar-brand img {
+            height: 32px;
+        }
+        
+        .navbar .nav-link {
+            color: #333;
+            font-weight: 500;
+            margin: 0 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .navbar .nav-icon {
+            color: #333;
+            font-size: 18px;
+            margin-left: 15px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 4px;
+            font-weight: 500;
+            padding: 8px 15px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .hero-section {
+            padding: 70px 0;
+            background-color: #eee8e0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 14px;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        
+        .hero-image img {
+            max-height: 400px;
+            position: relative;
+        }
+        
+        .hero-nav {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        
+        .hero-nav .btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+        }
+
+        .welcome-text {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            color: #666;
+        }
+ 
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 24px;
+            position: relative;
+        }
+        
+        .category-section {
+            padding: 30px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .category-icon img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .category-item {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .category-name {
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        
+        .feature-box {
+            background-color: #f0ece4;
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .feature-subtitle {
+            color: #4caf50;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .feature-price {
+            color: #333;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-price .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        
+        .badge-sale {
+            background-color: #e85c41;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 8px;
+            margin-left: 10px;
+            border-radius: 3px;
+        }
+        
+        .product-section {
+            padding: 40px 0;
+            background-color: #fff;
+        }
+        
+        .product-card {
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .product-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        
+        .product-image img {
+            max-height: 180px;
+        }
+        
+        .product-details {
+            padding: 15px;
+            background-color: #fff;
+        }
+        
+        .product-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            color: #4caf50;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .product-rating {
+            margin-bottom: 10px;
+            color: #ffc107;
+            font-size: 12px;
+        }
+        
+        .product-stock {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-section {
+            padding: 40px 0;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+        
+        .testimonial-box {
+            background-color: #000;
+            height: 200px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .blog-section {
+            padding: 40px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .blog-card {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background-color: #e1f0e5;
+            height: 100%;
+        }
+        
+        .blog-image {
+            height: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 15px;
+        }
+        
+        .blog-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .blog-meta {
+            color: #777;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .certification-section {
+            padding: 40px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+        
+        .certification-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+        }
+        
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-logo img {
+            height: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-text {
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-links li i {
+            margin-right: 8px;
+            color: #666;
+        }
+        
+        .footer-social {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #4caf50;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .payment-methods {
+            margin-top: 20px;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .payment-icon {
+            width: 40px;
+            height: 25px;
+            background-color: #fff;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certification-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            margin: 0 15px;
+        }
+
+        .badge-gmp {
+            background-color: #4caf50;
+            border: 2px solid #459c48;
+        }
+
+        .badge-cert {
+            background-color: #1e88e5;
+            border: 2px solid #187bd1;
+        }
+
+        .badge-herb {
+            background-color: #43a047;
+            border: 2px solid #3c9040;
+        }
+
+        .badge-iso {
+            background-color: #7e57c2;
+            border: 2px solid #6e4baa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.shutterstock.com/shutterstock/photos/2380715779/display_1500/stock-vector-health-and-wellness-logo-therapeutic-and-holistic-health-center-logo-design-vector-template-2380715779.jpg" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="nav-icon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="nav-icon">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="nav-icon position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="background-color: #f0e9e0; padding: 50px 0; position: relative; overflow: hidden;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 style="font-weight: bold; font-size: 2.5rem; margin-bottom: 20px;">Your Key To<br>Heart Wellness.</h1>
+                    <p style="margin-bottom: 25px;">We offer the purest extraction of heart with our curated range of heart remedies and supplements.</p>
+                    <a href="#" class="btn btn-primary" style="background-color: #008060; border: none; padding: 8px 20px; border-radius: 3px;">Shop Now</a>
+                    <div class="d-flex mt-4">
+                        <img src="https://www.collesibeauty.it/wp/wp-content/uploads/2023/11/LOGO-ICIM-ISO-9001-COLLESI.png" alt="Certification" class="me-3" style="height: 40px; width: auto;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrpN4NPnc4nASk200ri359_6BhkVPo4e9beMpROXGJPs3dbrYPWGhguQg-ozISDiLqdWg&usqp=CAU" alt="Certification" class="me-3" style="height: 40px; width: auto;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrpN4NPnc4nASk200ri359_6BhkVPo4e9beMpROXGJPs3dbrYPWGhguQg-ozISDiLqdWg&usqp=CAU" alt="Certification" class="me-3" style="height: 40px; width: auto;">
+                    </div>
+                </div>
+                <!-- Product image positioned exactly like in the reference -->
+    <div style="position: absolute; top: 0; right: 0; height: 100%; width: 50%;">
+        <img src="https://www.atulyam.co.in/cdn/shop/files/MG_2024-07-03T06_23_35.360Z.png?v=1719987822" 
+             alt="VCO Product" 
+             style="position: absolute; right: 10%; top: 50%; transform: translateY(-50%); max-height: 90%; object-fit: contain;">
+    </div>
+            </div>
+        </div>
+        <div class="hero-nav" style="position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; padding: 0 15px;">
+            <button class="btn btn-sm btn-light rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="btn btn-sm btn-light rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <div class="welcome-text">
+        <div class="container">
+            <p style="color: green;">Welcome to Herbpur Store</p>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="section-title">Popular Category</h2>
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4482/4482452.png" alt="Thyroid">
+                        </div>
+                        <p class="category-name">Thyroid</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <img src="https://www.shutterstock.com/image-vector/outline-blood-glucose-meter-testing-600nw-1947558553.jpg" alt="Diabetes">
+                        </div>
+                        <p class="category-name">Diabetes</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <img src="https://static.vecteezy.com/system/resources/previews/037/153/200/non_2x/environmental-wellness-icon-or-logo-design-isolated-sign-symbol-illustration-high-quality-line-style-icon-free-vector.jpg" alt="Heart Wellness">
+                        </div>
+                        <p class="category-name">Heart Wellness</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="category-item">
+                        <div class="category-icon">
+                            <img src="https://media.istockphoto.com/id/2050209061/vector/immunity-booster-icon-immune-icon-for-healthcare.jpg?s=612x612&w=0&k=20&c=E_hPVaXw6dyKZnKULEmJbTs0vyMWpqEIWAH2P4HaL7A=" alt="Immunity">
+                        </div>
+                        <p class="category-name">Immunity</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-box" style="background-color: #f5e9dd; border-radius: 8px; padding: 20px;">
+                        <div>
+                            <h3 class="feature-title">October Drop</h3>
+                            <p class="feature-subtitle">Special offer...</p>
+                            <div class="feature-price">
+                                Upto 45% off
+                            </div>
+                            <a href="#" class="btn btn-primary" style="background-color: #288963; border: none; padding: 5px 15px; border-radius: 4px;">Shop Now</a>
+                        </div>
+                        <div style="text-align: right; margin-top: -80px;">
+                            <img src="https://images.everydayhealth.com/images/skin-beauty/psoriasis/can-acv-help-psoriasis-alt-1440x810.jpg" alt="October Drop" class="img-fluid" style="max-height: 100px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-box" style="background-color: #f9f3e3; border-radius: 8px; padding: 20px;">
+                        <div>
+                            <h3 class="feature-title">Festive Sale</h3>
+                            <p class="feature-subtitle">Combo pack</p>
+                            <div class="feature-price">
+                                899/- <span class="badge-sale">Limited Time Offer</span>
+                            </div>
+                            <a href="#" class="btn btn-primary" style="background-color: #288963; border: none; padding: 5px 15px; border-radius: 4px;">Shop Now</a>
+                        </div>
+                        <div style="text-align: right; margin-top: -80px;">
+                            <img src="https://images.everydayhealth.com/images/skin-beauty/psoriasis/can-acv-help-psoriasis-alt-1440x810.jpg" alt="Festive Sale Products" class="img-fluid" style="max-height: 100px;">
+                        </div>
+                    </div>
+                </div>
+           
+    </section>
+    
+    <!-- Products Section -->
+    <section class="product-section">
+        <div class="welcome-text">
+            <div class="container">
+                <p style="color: green;">Exclusive Products</p>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="section-title">Our Featured Products</h2>
+            <div class="row">
+                <!-- Product 1 -->
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: 0 auto;">
+
+                    <!-- Product Card Template (x6) -->
+                    <!-- You can replace the image URL with others if needed -->
+                    <!-- Repeat this block for each product -->
+                    <!-- Product 1 -->
+                    <div style="width: 300px; background-color: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+                      <div style="width: 100%; height: 250px; overflow: hidden;">
+                        <img src="https://xgentech.net/cdn/shop/articles/pexels-n-voitkevich-7852731.jpg?v=1729838850" alt="Product" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div style="padding: 16px; text-align: center;">
+                        <p style="margin: 0 0 10px; font-size: 16px;">Clear Block Combo Pack of two 250ml bottle of Syrups</p>
+                        <p style="margin: 0 0 10px; color: #666; font-size: 14px;">
+                          <del style="margin-right: 5px;">₹1,800.00</del>
+                          <span style="color: green; font-weight: bold;">₹1,300.00</span>
+                        </p>
+                        <a href="#" style="display: inline-block; padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px; margin-bottom: 10px;">Add to cart</a>
+                        <p style="margin: 0; font-size: 13px;">POINTS : 1300</p>
+                      </div>
+                    </div>
+              
+                    <!-- Product 2 to 6 (Copy of above with same image and text for now) -->
+                    <div style="width: 300px; background-color: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+                      <div style="width: 100%; height: 250px; overflow: hidden;">
+                        <img src="https://xgentech.net/cdn/shop/articles/pexels-n-voitkevich-7852731.jpg?v=1729838850" alt="Product" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div style="padding: 16px; text-align: center;">
+                        <p style="margin: 0 0 10px; font-size: 16px;">Clear Block Combo Pack of two 250ml bottle of Syrups</p>
+                        <p style="margin: 0 0 10px; color: #666; font-size: 14px;">
+                          <del style="margin-right: 5px;">₹1,800.00</del>
+                          <span style="color: green; font-weight: bold;">₹1,300.00</span>
+                        </p>
+                        <a href="#" style="display: inline-block; padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px; margin-bottom: 10px;">Add to cart</a>
+                        <p style="margin: 0; font-size: 13px;">POINTS : 1300</p>
+                      </div>
+                    </div>
+              
+                    <!-- Product 3 -->
+                    <div style="width: 300px; background-color: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+                      <div style="width: 100%; height: 250px; overflow: hidden;">
+                        <img src="https://xgentech.net/cdn/shop/articles/pexels-n-voitkevich-7852731.jpg?v=1729838850" alt="Product" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div style="padding: 16px; text-align: center;">
+                        <p style="margin: 0 0 10px; font-size: 16px;">Clear Block Combo Pack of two 250ml bottle of Syrups</p>
+                        <p style="margin: 0 0 10px; color: #666; font-size: 14px;">
+                          <del style="margin-right: 5px;">₹1,800.00</del>
+                          <span style="color: green; font-weight: bold;">₹1,300.00</span>
+                        </p>
+                        <a href="#" style="display: inline-block; padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px; margin-bottom: 10px;">Add to cart</a>
+                        <p style="margin: 0; font-size: 13px;">POINTS : 1300</p>
+                      </div>
+                    </div>
+              
+                    <!-- Product 4 -->
+                    <div style="width: 300px; background-color: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+                      <div style="width: 100%; height: 250px; overflow: hidden;">
+                        <img src="https://xgentech.net/cdn/shop/articles/pexels-n-voitkevich-7852731.jpg?v=1729838850" alt="Product" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div style="padding: 16px; text-align: center;">
+                        <p style="margin: 0 0 10px; font-size: 16px;">Clear Block Combo Pack of two 250ml bottle of Syrups</p>
+                        <p style="margin: 0 0 10px; color: #666; font-size: 14px;">
+                          <del style="margin-right: 5px;">₹1,800.00</del>
+                          <span style="color: green; font-weight: bold;">₹1,300.00</span>
+                        </p>
+                        <a href="#" style="display: inline-block; padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px; margin-bottom: 10px;">Add to cart</a>
+                        <p style="margin: 0; font-size: 13px;">POINTS : 1300</p>
+                      </div>
+                    </div>
+              
+                    <!-- Product 5 -->
+                    <div style="width: 300px; background-color: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+                      <div style="width: 100%; height: 250px; overflow: hidden;">
+                        <img src="https://xgentech.net/cdn/shop/articles/pexels-n-voitkevich-7852731.jpg?v=1729838850" alt="Product" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div style="padding: 16px; text-align: center;">
+                        <p style="margin: 0 0 10px; font-size: 16px;">Clear Block Combo Pack of two 250ml bottle of Syrups</p>
+                        <p style="margin: 0 0 10px; color: #666; font-size: 14px;">
+                          <del style="margin-right: 5px;">₹1,800.00</del>
+                          <span style="color: green; font-weight: bold;">₹1,300.00</span>
+                        </p>
+                        <a href="#" style="display: inline-block; padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px; margin-bottom: 10px;">Add to cart</a>
+                        <p style="margin: 0; font-size: 13px;">POINTS : 1300</p>
+                      </div>
+                    </div>
+              
+                    <!-- Product 6 -->
+                    <div style="width: 300px; background-color: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+                      <div style="width: 100%; height: 250px; overflow: hidden;">
+                        <img src="https://xgentech.net/cdn/shop/articles/pexels-n-voitkevich-7852731.jpg?v=1729838850" alt="Product" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div style="padding: 16px; text-align: center;">
+                        <p style="margin: 0 0 10px; font-size: 16px;">Clear Block Combo Pack of two 250ml bottle of Syrups</p>
+                        <p style="margin: 0 0 10px; color: #666; font-size: 14px;">
+                          <del style="margin-right: 5px;">₹1,800.00</del>
+                          <span style="color: green; font-weight: bold;">₹1,300.00</span>
+                        </p>
+                        <a href="#" style="display: inline-block; padding: 8px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px; margin-bottom: 10px;">Add to cart</a>
+                        <p style="margin: 0; font-size: 13px;">POINTS : 1300</p>
+                      </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
+        <div class="welcome-text">
+            <div class="container">
+                <p style="color: green;">Our Testimonials</p>
+            </div>
+        <div class="container">
+            <h2 class="section-title">What Patients Say</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-box">
+                        <!-- Placeholder for testimonial video/content -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-box">
+                        <!-- Placeholder for testimonial video/content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="welcome-text">
+            <div class="container">
+                <p style="color: green;">Our Blogs & News</p>
+            </div>
+        <div class="container">
+            <h2 class="section-title">Latest Blogs & Articles</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="/api/placeholder/400/200" alt="Ayurvedic Hacks">
+                        </div>
+                        <div class="blog-content">
+                            <h5 class="blog-title">Ayurvedic Hacks for a Stress-Free Work Life</h5>
+                            <div class="blog-meta">February 26, 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="/api/placeholder/400/200" alt="Hindi Article">
+                        </div>
+                        <div class="blog-content">
+                            <h5 class="blog-title">आपको कितना पानी पीना है और आपको क्यों पीना चाहिए</h5>
+                            <div class="blog-meta">February 24, 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="/api/placeholder/400/200" alt="Heart Facts">
+                        </div>
+                        <div class="blog-content">
+                            <h5 class="blog-title">10 Facts Every Woman Should Know About Her Heart</h5>
+                            <div class="blog-meta">February 22, 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section class="certification-section">
+        <div class="welcome-text">
+            <div class="container">
+                <p style="color: green;">Certification & Approvals</p>
+            </div>
+        <div class="container">
+            <h2 class="section-title">Commitment To Quality And Compliance</h2>
+            <div class="certification-icons">
+                <div class="certification-badge badge-gmp">
+                    <span>GMP</span>
+                </div>
+                <div class="certification-badge badge-cert">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="certification-badge badge-herb">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="certification-badge badge-iso">
+                    <span>ISO</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+    .footer {
+        background-color: #2a2c2f;
+        color: white;
+        padding: 40px 0;
+        font-family: Arial, sans-serif;
+    }
+    .footer .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .footer .col {
+        flex: 1;
+        min-width: 220px;
+        margin-bottom: 30px;
+    }
+    .footer img.logo {
+        width: 60px;
+        margin-bottom: 15px;
+    }
+    .footer p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #ccc;
+    }
+    .footer .social-icons a {
+        margin-right: 10px;
+        font-size: 18px;
+        color: #ccc;
+        background: #3a3b3d;
+        padding: 10px;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+    .footer .social-icons a:hover {
+        background-color: #fff;
+        color: #2a2c2f;
+    }
+    .footer h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+    .footer ul {
+        list-style: none;
+        padding: 0;
+    }
+    .footer ul li {
+        margin-bottom: 10px;
+        color: #ccc;
+        font-size: 14px;
+    }
+    .footer ul li i {
+        color: #33cc99;
+        margin-right: 8px;
+    }
+    .footer ul li a {
+        text-decoration: none;
+        color: #ccc;
+        transition: 0.3s;
+    }
+    .footer ul li a:hover {
+        color: #fff;
+    }
+    .footer .payment {
+        margin-top: 15px;
+    }
+    .footer .payment img {
+        max-width: 150px;
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 3px;
+    }
+    .footer .contact-info li i {
+        color: #33cc99;
+        width: 20px;
+        display: inline-block;
+    }
+    .footer-bottom {
+        background-color: #1e1f21;
+        color: #ccc;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 14px;
+    }
+</style>
+
+<footer class="footer">
+    <div class="container">
+        <!-- Logo and About -->
+        <div class="col">
+            <img src="https://www.shutterstock.com/shutterstock/photos/2380715779/display_1500/stock-vector-health-and-wellness-logo-therapeutic-and-holistic-health-center-logo-design-vector-template-2380715779.jpg" alt="World Healthcare" class="logo">
+            <p>
+                Over the years, <strong>world Healthcare</strong> has been at the forefront of Ayurvedic innovations, bringing forth a plethora of products and services to elevate health and happiness.
+            </p>
+            <div class="social-icons">
+                <a href="#" style="background-color: #33cc99; color: white; padding: 10px; border-radius: 50%; display: inline-block;">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#" style="background-color: #33cc99; color: white; padding: 10px; border-radius: 50%; display: inline-block;">  
+                <i class="fab fa-twitter"></i></a>
+                <a href="#" style="background-color: #33cc99; color: white; padding: 10px; border-radius: 50%; display: inline-block;">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  
+                  <a href="#" style="background-color: #33cc99; color: white; padding: 10px; border-radius: 50%; display: inline-block;">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  
+            </div>
+        </div>
+
+        <!-- Important Links -->
+        <div class="col">
+            <h4>Important Links</h4>
+            <ul>
+                <li><i class="fas fa-angle-double-right"></i> <a href="#">Privacy Policy</a></li>
+                <li><i class="fas fa-angle-double-right"></i> <a href="#">Shipping & Delivery Policy</a></li>
+                <li><i class="fas fa-angle-double-right"></i> <a href="#">Terms & Conditions</a></li>
+                <li><i class="fas fa-angle-double-right"></i> <a href="#">Cancellation & Refund Policy</a></li>
+                <li><i class="fas fa-angle-double-right"></i> <a href="#">Contact Information</a></li>
+            </ul>
+        </div>
+
+        <!-- Useful Links -->
+        <div class="col">
+            <h4>Useful Links</h4>
+            <ul>
+                <li><i class="fas fa-user"></i> <a href="#">My Account</a></li>
+                <li><i class="fas fa-shopping-cart"></i> <a href="#">Cart</a></li>
+                <li><i class="fas fa-credit-card"></i> <a href="#">Checkout</a></li>
+                <li><i class="fas fa-store"></i> <a href="#">Shop</a></li>
+                <li><i class="fas fa-users"></i> <a href="#">Join Us</a></li>
+            </ul>
+            <div class="payment">
+                <p style="margin-bottom: 5px;">We Accept</p>
+                <img 
+                  src="https://www.shutterstock.com/image-vector/kerala-india-may-08-2023-260nw-2304421791.jpg" 
+                  alt="Payments" 
+                  style="width: 80px; height: auto; display: block;"
+                >
+              </div>
+              
+        </div>
+
+        <!-- Contact Us -->
+        <div class="col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> G-2 Vasundhara Shree 37, Alok Nagar Near Green Valley Bicholi Hapsi, 452001, Indore (M.P)</li>
+                <li><i class="fas fa-phone"></i> +91 79743 37076</li>
+                <li><i class="fas fa-envelope"></i> worldhealthcare@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        Copyright © 2024 World Health Care. All Right Reserved.
+    </div>
+</footer>
