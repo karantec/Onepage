@@ -20,7 +20,7 @@ body {
 }
 
 .navbar .nav-link {
-    color: #333;
+    color: #258F67;
     font-weight: 500;
     margin: 0 10px;
     font-size: 14px;
@@ -28,7 +28,7 @@ body {
 }
 
 .navbar .nav-icon {
-    color: #333;
+    color: #258F67;
     font-size: 18px;
     margin-left: 15px;
 }
@@ -511,7 +511,7 @@ footer {
     margin-right: 10px;
     font-size: 18px;
     color: #ccc;
-    background: #3a3b3d;
+    background: #258F67;
     padding: 10px;
     border-radius: 50%;
     transition: 0.3s;
